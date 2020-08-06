@@ -11,11 +11,12 @@ assist = Assistant(app, route='/google')
 
 @app.route("/", methods=['GET'])
 def main():
-	return "Eureka"
+	testCad1, testUSRL = MerakiMV.mainReturn()
+	return ("Eureka-->{}{}".format(testCad1,testUSRL))
 
 @assist.action('bcic-meraki')
 def google_bcic_meraki():
-	cad,url = GetSnap.mainReturn()
+	cad,url = MerakiMV.mainReturn()
 	return tell("I see " + cad[:415]).card(
 		text="See...",
 		title="Image:",
